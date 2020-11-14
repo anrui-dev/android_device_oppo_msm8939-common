@@ -14,3 +14,4 @@ allow system_server zygote:process setsched;
 get_prop(system_server, exported_camera_prop);
 get_prop(system_server, userspace_reboot_config_prop);
 get_prop(system_server, userspace_reboot_exported_prop);
+get_prop(system_server, vendor_security_patch_level_prop);
