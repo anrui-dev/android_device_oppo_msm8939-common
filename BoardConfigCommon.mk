@@ -98,6 +98,9 @@ TARGET_USES_ION := true
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+
 # HIDL
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 

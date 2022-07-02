@@ -137,6 +137,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service
 
+# For config.fs
+PRODUCT_PACKAGES += \
+    fs_config_files
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8916 \
