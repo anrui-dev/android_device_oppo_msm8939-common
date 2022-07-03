@@ -29,9 +29,6 @@ vendor/lib/libgsl.so|252cd2ec1006268a45df66bdce947e647d1efe5b
 vendor/lib/libllvm-glnext.so|2e5785200004df231403074c0f6d7d87bf395745
 vendor/lib/libllvm-qcom.so|77f2a0adf9c36291a02055be3fcd1cf5fa82a113
 vendor/lib/libOpenCL.so|9c3f63df298c155a526d075c9d2643d01b59f98a
-vendor/lib/librs_adreno.so|7f0fe9802d2bd832b98848d7436ae1aafbe52221
-vendor/lib/librs_adreno_sha1.so|3289659eb1307377b20fb33ca4b8d42e15532612
-vendor/lib/libRSDriver_adreno.so|2c9d23e4555f76c1aa28eb5aea2fa919081a8654
 vendor/lib/libsc-a3xx.so|a03fc9f0c929cb4adf013f8a463cfbef68d48090
 vendor/lib/libscale.so|972cbd87794b4ce0a5c23db946acbafd4cd6d073
 
