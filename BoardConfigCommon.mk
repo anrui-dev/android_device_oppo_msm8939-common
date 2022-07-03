@@ -114,6 +114,9 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8939
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Legacy memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # Malloc
 MALLOC_SVELTE := true
 
