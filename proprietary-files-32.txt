@@ -37,4 +37,4 @@ etc/firmware/a420_pfp.fw:vendor/firmware/a420_pfp.fw|ceb61d9f1385b3f2956d72f33e0
 etc/firmware/a420_pm4.fw:vendor/firmware/a420_pm4.fw|d8ca599bd61cc85fec0b39c11ccd046d863ba7b3
 
 # Widevine - from angler - OPR6.170623.017 factory image
-vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
+vendor/lib/mediadrm/libwvdrmengine.so|244d14417ba15e3710b037affccfe732d896d350

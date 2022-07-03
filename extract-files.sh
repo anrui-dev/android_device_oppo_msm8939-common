@@ -53,6 +53,14 @@ while [ "$1" != "" ]; do
     shift
 done
 
+function blob_fixup() {
+    case "${1}" in
+        vendor/lib/mediadrm/libwvdrmengine.so)
+            patchelf --replace-needed libprotobuf-cpp-lite.so libprotobuf-cpp-lite-v29.so "${2}"
+            ;;
+    esac
+}
+
 if [ -z "$SRC" ]; then
     SRC=adb
 fi
