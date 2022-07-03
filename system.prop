@@ -24,7 +24,6 @@ ro.qualcomm.bt.hci_transport=smd
 persist.camera.cpp.duplication=false
 
 # Display
-debug.composition.type=c2d
 debug.enable.sglscale=1
 debug.hwui.use_buffer_age=false
 debug.mdpcomp.idletime=600
