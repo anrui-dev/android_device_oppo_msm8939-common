@@ -18,6 +18,9 @@ BOARD_VENDOR := oppo
 
 COMMON_PATH := device/oppo/msm8939-common
 
+# Build
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
 
