@@ -15,6 +15,7 @@
 cc_binary {
     name: "vendor.lineage.touch@1.0-service.oppo_msm8939",
     init_rc: ["vendor.lineage.touch@1.0-service.oppo_msm8939.rc"],
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.oppo_msm8939.xml"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,
