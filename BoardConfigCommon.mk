@@ -58,6 +58,8 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --tags_offset 0x00000100
 TARGET_KERNEL_SOURCE := kernel/oppo/msm8939
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 ifneq ($(FORCE_32_BIT),true)
 BOARD_KERNEL_IMAGE_NAME := Image-dtb
 else
