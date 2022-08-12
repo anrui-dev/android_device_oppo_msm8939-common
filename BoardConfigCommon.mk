@@ -158,9 +158,10 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/common
 BOARD_ROOT_EXTRA_FOLDERS := firmware persist
 
 # SELinux
-include device/qcom/sepolicy-legacy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+#include device/qcom/sepolicy-legacy/sepolicy.mk
+#BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy-minimal
 
 # Shim
 TARGET_LD_SHIM_LIBS := \
