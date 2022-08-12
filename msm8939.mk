@@ -237,6 +237,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
+# Postproc
+PRODUCT_PACKAGES += \
+    libshims_postproc
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom-common.rc \
