@@ -18,48 +18,54 @@
 
 set -e
 
-INITIAL_COPYRIGHT_YEAR=2015
-
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-LINEAGE_ROOT="$MY_DIR"/../../..
+ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
-if [ ! -f "$HELPER" ]; then
-    echo "Unable to find helper script at $HELPER"
+HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+if [ ! -f "${HELPER}" ]; then
+    echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
-. "$HELPER"
+source "${HELPER}"
 
-if [ -z "$BITS" ]; then
-    echo "\$BITS must be set before running this script!"
+if [ -z "${BITS}" ]; then
+    echo "\${BITS} must be set before running this script!"
     exit 1
 fi
 
-# Initialize the helper for common device
-setup_vendor "$DEVICE_COMMON-$BITS" "$VENDOR" "$LINEAGE_ROOT" true
+# Initialize the helper for common
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
 
 # Copyright headers and common guards
-if [ "$BITS" == "32" ]; then
+if [ "${BITS}" == "32" ]; then
     write_headers "r5 r7"
 else
     write_headers "f1f r7plus r7sf"
 fi
 
-write_makefiles "$MY_DIR"/proprietary-files-$BITS.txt
-
-write_footers
-
-# Reinitialize the helper for device
-setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
-
-# Copyright headers and guards
+# Warning headers and guards
 write_headers
 
-write_makefiles "$MY_DIR"/device-proprietary-files-$BITS.txt
-write_makefiles "$MY_DIR"/../$DEVICE/device-proprietary-files.txt
+# The standard common blobs
+write_makefiles "${MY_DIR}/proprietary-files-${BIT}.txt" true
 
 # Finish
 write_footers
+
+if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
+    # Reinitialize the helper for device
+    setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
+
+    # Warning headers and guards
+    write_headers
+
+    # The standard device blobs
+    write_makefiles "${MY_DIR}/device-proprietary-files-${BITS}.txt" true
+    write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
+
+    # Finish
+    write_footers
+fi
