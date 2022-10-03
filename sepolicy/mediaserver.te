@@ -8,3 +8,4 @@ allow mediaserver cameraproxy_service:service_manager find;
 allow mediaserver cameraserver_service:service_manager add;
 allow mediaserver hal_camera_hwservice:hwservice_manager find;
 allow mediaserver fwk_camera_hwservice:hwservice_manager add;
+get_prop(mediaserver, exported_camera_prop);
