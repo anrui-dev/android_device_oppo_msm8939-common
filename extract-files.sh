@@ -74,15 +74,6 @@ extract "$MY_DIR"/proprietary-files-$BITS.txt "$SRC" "$SECTION"
 setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
 
 extract "$MY_DIR"/device-proprietary-files-$BITS.txt "$SRC" "$SECTION"
-extract "$MY_DIR"/device-proprietary-files-twrp-$BITS.txt "$SRC" "$SECTION"
 extract "$MY_DIR"/../$DEVICE/device-proprietary-files.txt "$SRC" "$SECTION"
-
-TWRP_QSEECOMD="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/recovery/root/sbin/qseecomd
-
-if [ "$BITS" == "32" ]; then
-    sed -i "s|/system/bin/linker|/sbin/linker\x0\x0\x0\x0\x0\x0|g" "$TWRP_QSEECOMD"
-else
-    sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_QSEECOMD"
-fi
 
 "$MY_DIR"/setup-makefiles.sh
